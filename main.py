@@ -19,7 +19,10 @@ def generate_password(length, nums, special_chars, uppercase, lowercase):
             password += secrets.choice(all_characters)
         
         constraints = [
-            (nums, '')
-        ]        
+            (nums, r'\d'),
+            (lowercase, r'[a-z]'),
+            (uppercase, r'[A-Z]'),
+            (special_chars, r'[^a-zA-Z0-9]')
+        ]           
 
     return password
